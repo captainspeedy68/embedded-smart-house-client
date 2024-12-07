@@ -5,10 +5,10 @@ import Showdata from './Showdata';
 
 const Home = () => {
   const [sensorData, setSensorData] = useState({
-    mq1: '',
-    mq2: '',
-    mq3: '',
-    treeName: '',
+    MQ135: '',
+    MQ2: '',
+    MQ3: '',
+    MQ6: '',
   });
 
   const [profile, setProfile] = useState({
@@ -100,12 +100,12 @@ const Home = () => {
             <form>
               <div className="form-control mb-4">
                 <label className="label">
-                  <span className="label-text text-md">MQ1</span>
+                  <span className="label-text text-md">MQ135</span>
                 </label>
                 <input
                   type="number"
-                  name="mq1"
-                  value={sensorData.mq1}
+                  name="MQ135"
+                  value={sensorData.MQ135}
                   onChange={handleSensorDataChange}
                   className="input input-bordered input-md"
                 />
@@ -116,8 +116,8 @@ const Home = () => {
                 </label>
                 <input
                   type="number"
-                  name="mq2"
-                  value={sensorData.mq2}
+                  name="MQ2"
+                  value={sensorData.MQ2}
                   onChange={handleSensorDataChange}
                   className="input input-bordered input-md"
                 />
@@ -128,20 +128,20 @@ const Home = () => {
                 </label>
                 <input
                   type="number"
-                  name="mq3"
-                  value={sensorData.mq3}
+                  name="MQ3"
+                  value={sensorData.MQ3}
                   onChange={handleSensorDataChange}
                   className="input input-bordered input-md"
                 />
               </div>
               <div className="form-control mb-4">
                 <label className="label">
-                  <span className="label-text text-md">Tree Name</span>
+                  <span className="label-text text-md">MQ6</span>
                 </label>
                 <input
                   type="text"
-                  name="treeName"
-                  value={sensorData.treeName}
+                  name="MQ6"
+                  value={sensorData.MQ6}
                   onChange={handleSensorDataChange}
                   className="input input-bordered input-md"
                 />
@@ -157,10 +157,10 @@ const Home = () => {
             {/* Real-time data will be displayed here */}
             <div className="text-center">
               <div className="mb-3">
-                <h3 className="text-xl font-medium">MQ1: {sensorData.mq1}</h3>
-                <h3 className="text-xl font-medium">MQ2: {sensorData.mq2}</h3>
-                <h3 className="text-xl font-medium">MQ3: {sensorData.mq3}</h3>
-                <h3 className="text-xl font-medium">Tree Name: {sensorData.treeName}</h3>
+                <h3 className="text-xl font-medium">MQ135: {sensorData.MQ135}</h3>
+                <h3 className="text-xl font-medium">MQ2: {sensorData.MQ2}</h3>
+                <h3 className="text-xl font-medium">MQ3: {sensorData.MQ3}</h3>
+                <h3 className="text-xl font-medium">MQ6: {sensorData.MQ6}</h3>
               </div>
               <div className="text-lg font-medium text-gray-600">
                 <p>Real-time data is shown above.</p>
@@ -171,8 +171,8 @@ const Home = () => {
       </div>
 
     
- <Showdata></Showdata>
-    </div>
+ <Showdata></Showdata>   
+  </div>
 
  
   );
