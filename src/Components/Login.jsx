@@ -1,69 +1,73 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [credentials, setCredentials] = useState({
+    username: '',
+    password: '',
+  });
   const navigate = useNavigate();
 
+  // Handle input change for username and password
+  const handleChange = (e) => {
+    setCredentials({
+      ...credentials,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // Handle login form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Add validation here (for example, mock validation)
-    if (email === 'test@example.com' && password === 'password123') {
-      // Navigate to the Home page after successful login
-      navigate('/home');
+
+    // Simple authentication check (you can replace this with actual authentication logic)
+    if (credentials.username === 'user' && credentials.password === 'password') {
+      navigate('/home');  // Redirect to the home page on success
     } else {
-      setErrorMessage('Invalid email or password');
+      alert('Invalid credentials!');  // Show error if credentials are incorrect
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="card w-96 bg-base-100 shadow-xl">
-        <div className="card-body">
-          <h2 className="text-3xl font-semibold text-center">Login</h2>
-          
-          {/* Error Message */}
-          {errorMessage && <div className="text-red-500 text-center mb-4">{errorMessage}</div>}
-
-          {/* Login Form */}
-          <form onSubmit={handleSubmit}>
-            <div className="form-control mb-4">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="input input-bordered"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-
-            <div className="form-control mb-4">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="password"
-                placeholder="Enter your password"
-                className="input input-bordered"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-
-            {/* Submit Button */}
-            <div className="form-control mt-4">
-              <button type="submit" className="btn btn-primary">Login</button>
-            </div>
-          </form>
-        </div>
+    <div className="min-h-screen bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 flex justify-center items-center">
+      <div className="card w-96 bg-white shadow-xl p-6">
+        <h2 className="text-2xl font-semibold text-center mb-6">Login</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-control mb-4">
+            <label className="label">
+              <span className="label-text">Username</span>
+            </label>
+            <input
+              type="text"
+              name="username"
+              value={credentials.username}
+              onChange={handleChange}
+              className="input input-bordered input-md w-full"
+              placeholder="Enter your username"
+              required
+            />
+          </div>
+          <div className="form-control mb-4">
+            <label className="label">
+              <span className="label-text">Password</span>
+            </label>
+            <input
+              type="password"
+              name="password"
+              value={credentials.password}
+              onChange={handleChange}
+              className="input input-bordered input-md w-full"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-primary w-full py-2 text-white text-lg">
+            Login
+          </button>
+        </form>
+        <p className="text-center text-sm mt-4">
+          Donot have an account? <a href="/register" className="text-blue-500">Register here</a>
+        </p>
       </div>
     </div>
   );
