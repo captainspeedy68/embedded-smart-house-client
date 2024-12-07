@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ref, onValue, set } from "firebase/database";
 import database from "../../firebase.config";
 import Showdata from './Showdata';
+import RealTIme from './RealTIme';
 
 const Home = () => {
   const [sensorData, setSensorData] = useState({
@@ -90,92 +91,21 @@ const Home = () => {
       {/* Header Section */}
       <h2 className="text-3xl font-bold text-center text-white mb-8 animate__animated animate__fadeInUp">Sensor Dashboard</h2>
 
-      {/* Real-Time and Manual Data Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
 
         {/* Manual Data Section */}
-        <div className="card w-full bg-base-100 shadow-lg transition-all transform hover:scale-105 duration-300">
-          <div className="card-body">
-            <h2 className="card-title text-center text-lg font-medium mb-5">Manual Sensor Data</h2>
-            <form>
-              <div className="form-control mb-4">
-                <label className="label">
-                  <span className="label-text text-md">MQ135</span>
-                </label>
-                <input
-                  type="number"
-                  name="MQ135"
-                  value={sensorData.MQ135}
-                  onChange={handleSensorDataChange}
-                  className="input input-bordered input-md"
-                />
-              </div>
-              <div className="form-control mb-4">
-                <label className="label">
-                  <span className="label-text text-md">MQ2</span>
-                </label>
-                <input
-                  type="number"
-                  name="MQ2"
-                  value={sensorData.MQ2}
-                  onChange={handleSensorDataChange}
-                  className="input input-bordered input-md"
-                />
-              </div>
-              <div className="form-control mb-4">
-                <label className="label">
-                  <span className="label-text text-md">MQ3</span>
-                </label>
-                <input
-                  type="number"
-                  name="MQ3"
-                  value={sensorData.MQ3}
-                  onChange={handleSensorDataChange}
-                  className="input input-bordered input-md"
-                />
-              </div>
-              <div className="form-control mb-4">
-                <label className="label">
-                  <span className="label-text text-md">MQ6</span>
-                </label>
-                <input
-                  type="text"
-                  name="MQ6"
-                  value={sensorData.MQ6}
-                  onChange={handleSensorDataChange}
-                  className="input input-bordered input-md"
-                />
-              </div>
-            </form>
-          </div>
-        </div>
+       
+        
 
-        {/* Real-Time Data Section */}
-        <div className="card w-full bg-base-100 shadow-lg transition-all transform hover:scale-105 duration-300">
-          <div className="card-body">
-            <h2 className="card-title text-center text-lg font-medium mb-5">Real-Time Sensor Data</h2>
-            {/* Real-time data will be displayed here */}
-            <div className="text-center">
-              <div className="mb-3">
-                <h3 className="text-xl font-medium">MQ135: {sensorData.MQ135}</h3>
-                <h3 className="text-xl font-medium">MQ2: {sensorData.MQ2}</h3>
-                <h3 className="text-xl font-medium">MQ3: {sensorData.MQ3}</h3>
-                <h3 className="text-xl font-medium">MQ6: {sensorData.MQ6}</h3>
-              </div>
-              <div className="text-lg font-medium text-gray-600">
-                <p>Real-time data is shown above.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+       {/* <RealTIme></RealTIme> */}
+       <Showdata></Showdata> 
+</div>
     
- <Showdata></Showdata>   
-  </div>
-
+  
+ 
  
   );
-};
+
+  };
 
 export default Home;
