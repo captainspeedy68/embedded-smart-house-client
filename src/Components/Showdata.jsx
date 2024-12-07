@@ -71,33 +71,30 @@ const Showdata = () => {
         </label>
       </div>
 
-      <div className="stats stats-vertical lg:stats-horizontal shadow-lg">
-        {/* MQ2 Sensor */}
-        <div className="stat bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
-          <div className="stat-title text-xl text-gray-600">MQ2</div>
-          <div className="stat-value text-2xl font-bold text-indigo-600">{sensors.MQ2}</div>
-          <div className="stat-desc text-gray-500">Smoke and Gas</div>
-        </div>
+      <div className="flex justify-center">
+        <div className="stats stats-vertical lg:stats-horizontal shadow-lg bg-white">
+          <div className="stat">
+            <div className="stat-title">MQ2</div>
+            <div className="stat-value">{sensors.MQ2}</div>
+            <div className="stat-desc">Smoke and Gas</div>
+          </div>
 
-        {/* MQ3 Sensor */}
-        <div className="stat bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
-          <div className="stat-title text-xl text-gray-600">MQ3</div>
-          <div className="stat-value text-2xl font-bold text-indigo-600">{sensors.MQ3}</div>
-          <div className="stat-desc text-gray-500">↗︎ Alcohol</div>
-        </div>
+          <div className="stat">
+            <div className="stat-title">MQ3</div>
+            <div className="stat-value">{sensors.MQ3}</div>
+            <div className="stat-desc">↗︎ Alcohol</div>
+          </div>
 
-        {/* MQ6 Sensor */}
-        <div className="stat bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
-          <div className="stat-title text-xl text-gray-600">MQ6</div>
-          <div className="stat-value text-2xl font-bold text-indigo-600">{sensors.MQ6}</div>
-          <div className="stat-desc text-gray-500">↘︎ Smoke, LPG</div>
-        </div>
-
-        {/* DETECTED Status */}
-        <div className="stat bg-white p-4 rounded-lg shadow-md hover:shadow-xl">
-          <div className="stat-title text-xl text-gray-600">DETECTED</div>
-          <div className="stat-value text-2xl font-bold text-indigo-600">{detected}</div>
-          <div className="stat-desc text-gray-500">↘︎ Within 10CM</div>
+          <div className="stat">
+            <div className="stat-title">MQ6</div>
+            <div className="stat-value">{sensors.MQ6}</div>
+            <div className="stat-desc">↘︎ Smoke, LPG</div>
+          </div>
+          <div className="stat">
+            <div className="stat-title">DETECTED</div>
+            <div className="stat-value">{detected}</div>
+            <div className="stat-desc">↘︎ Within 10CM</div>
+          </div>
         </div>
       </div>
     </div>
