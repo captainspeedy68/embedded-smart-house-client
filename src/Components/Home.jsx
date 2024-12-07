@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { ref, onValue, set } from "firebase/database";
+import database from "../../firebase.config";
+import Showdata from './Showdata';
 
 const Home = () => {
   const [sensorData, setSensorData] = useState({
@@ -41,6 +44,7 @@ const Home = () => {
     }
   };
 
+  
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 p-6">
       {/* Profile Section */}
@@ -166,7 +170,8 @@ const Home = () => {
         </div>
       </div>
 
- 
+    
+ <Showdata></Showdata>
     </div>
 
  

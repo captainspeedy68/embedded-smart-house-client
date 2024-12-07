@@ -20,22 +20,20 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Simple authentication check (you can replace this with actual authentication logic)
-    if (credentials.username === 'user' && credentials.password === 'password') {
-      navigate('/home');  // Redirect to the home page on success
-    } else {
-      alert('Invalid credentials!');  // Show error if credentials are incorrect
-    }
+    // Simple check to save the login state to localStorage
+    // No need for credentials validation if you just want to redirect directly
+    localStorage.setItem('isLoggedIn', 'true');  // Simulate successful login
+    navigate('/home');  // Redirect to the home page
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 flex justify-center items-center">
-      <div className="card w-96 bg-white shadow-xl p-6">
-        <h2 className="text-2xl font-semibold text-center mb-6">Login</h2>
+    <div className="min-h-screen bg-gradient-to-r from-cyan-600 to-blue-200 flex justify-center items-center">
+      <div className="card w-96 bg-white shadow-xl rounded-lg p-6">
+        <h2 className="text-3xl font-extrabold text-center mb-6 text-gray-800">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-control mb-4">
             <label className="label">
-              <span className="label-text">Username</span>
+              <span className="label-text text-gray-600">Username</span>
             </label>
             <input
               type="text"
@@ -49,7 +47,7 @@ const Login = () => {
           </div>
           <div className="form-control mb-4">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text text-gray-600">Password</span>
             </label>
             <input
               type="password"
@@ -61,12 +59,12 @@ const Login = () => {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary w-full py-2 text-white text-lg">
+          <button type="submit" className="btn btn-primary w-full py-2 text-white text-lg bg-blue-600 hover:bg-blue-700 rounded-md">
             Login
           </button>
         </form>
-        <p className="text-center text-sm mt-4">
-          Donot have an account? <a href="/register" className="text-blue-500">Register here</a>
+        <p className="text-center text-sm mt-4 text-gray-700">
+          Donot have an account? <a href="/register" className="text-blue-500 hover:underline">Register here</a>
         </p>
       </div>
     </div>
