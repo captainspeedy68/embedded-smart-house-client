@@ -71,8 +71,8 @@ const Showdata = () => {
         </label>
       </div>
 
-      <div className="flex justify-center">
-        <div className="stats stats-vertical lg:stats-horizontal shadow-lg bg-white">
+      <div className="flex justify-center text-black">
+        <div className="stats stats-vertical lg:stats-horizontal shadow-xl rounded-lg p-6 bg-indigo-50 text-black">
           <div className="stat">
             <div className="stat-title">MQ2</div>
             <div className="stat-value">{sensors.MQ2}</div>
